@@ -120,7 +120,23 @@ add_action( 'widgets_init', 'bee_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bee_scripts() {
+
 	wp_enqueue_style( 'bee-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'bee-iconic-bootstrap', get_template_directory_uri() . 'css/open-iconic-bootstrap.min.css');
+	wp_enqueue_style( 'bee-animate', get_template_directory_uri() . 'css/animate.css');
+	wp_enqueue_style( 'bee-owl-carousel', get_template_directory_uri() . 'css/owl.carousel.min.css');
+	wp_enqueue_style( 'bee-owl-theme', get_template_directory_uri() . 'css/owl.theme.default.min.css');
+	wp_enqueue_style( 'bee-popup', get_template_directory_uri() . 'css/magnific-popup.css');
+	wp_enqueue_style( 'bee-aos', get_template_directory_uri() . 'css/aos.css');
+	wp_enqueue_style( 'bee-ionicons', get_template_directory_uri() . 'css/ionicons.min.css');
+	wp_enqueue_style( 'bee-bootstrap-datepicker', get_template_directory_uri() . 'css/bootstrap-datepicker.css');
+	wp_enqueue_style( 'bee-timepicker', get_template_directory_uri() . 'css/jquery.timepicker.css');
+	wp_enqueue_style( 'bee-flaticon', get_template_directory_uri() . 'css/flaticon.css');
+	wp_enqueue_style( 'bee-icomoon', get_template_directory_uri() . 'css/icomoon.css');
+	wp_enqueue_style( 'bee-main-styles', get_template_directory_uri() . 'css/style.css');
+	
+
 
 	wp_enqueue_script( 'bee-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
