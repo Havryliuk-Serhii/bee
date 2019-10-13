@@ -195,3 +195,44 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Add  e-mail and phone textarea
+ */
+
+function my_email_options(){
+	add_settings_field(
+	'email', 
+	'Write youre e-mail', 
+	'display_email',
+	'general' 
+);
+
+register_setting(
+	'general', 
+	'my_email' 
+);
+}
+add_action('admin_init', 'my_email_options');
+function display_email(){
+echo "<input type='text' class='regular-text' name='my_email' value='" . esc_attr(get_option('my_email')) . "'>";
+}
+
+
+function my_phone_options(){
+	add_settings_field(
+	'phone', 
+	'Write youre phone', 
+	'display_phone',
+	'general' 
+);
+
+register_setting(
+	'general', 
+	'my_phone' 
+);
+}
+add_action('admin_init', 'my_phone_options');
+function display_phone(){
+echo "<input type='text' class='regular-text' name='my_phone' value='" . esc_attr(get_option('my_phone')) . "'>";
+}
+

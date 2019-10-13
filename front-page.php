@@ -1,6 +1,6 @@
 <?php  
 /**
- * The template for displaying front page
+ *Template Name: Home Page
  */
 get_header(); ?>
 <section class="home-slider owl-carousel">
