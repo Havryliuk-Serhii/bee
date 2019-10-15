@@ -62,13 +62,31 @@
           </div>
         </form>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav mr-auto">
+		  wp_nav_menu( [
+			'theme_location' => 'primary',
+			'menu' => '',
+			'container' => 'div',
+			'container_class' => '',
+			'container_id' => '',
+			'menu_class' => 'menu',
+			'menu_id' => '',
+			'echo' => true,
+			'fallback_cb' => 'wp_page_menu',
+			'before' => '',
+			'after' => '',
+			'link_before' => '',
+			'link_after' => '',
+			'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			'depth' => 0,
+			'walker' => '',
+		  ] );
+	        <!--<ul class="navbar-nav mr-auto">
 	        	<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
 	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="project.html" class="nav-link">Project</a></li>
 	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>
+	        </ul>-->
 	      </div>
 	    </div>
 	  </nav>

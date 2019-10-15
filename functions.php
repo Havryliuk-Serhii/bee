@@ -7,6 +7,8 @@
  * @package bee
  */
 
+show_admin_bar(false);
+
 if ( ! function_exists( 'bee_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -44,7 +46,10 @@ if ( ! function_exists( 'bee_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'bee' ),
+			'primary' => esc_html__( 'Primary', 'bee' ),
+			'services' => esc_html__( 'Services Menu', 'bee' ),
+			'social' => esc_html__( 'Social Links Menu', 'bee' ),
+
 		) );
 
 		/*
@@ -167,6 +172,25 @@ function bee_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'bee_scripts' );
+
+remove_action( 'wp_head', 'feed_links_extra', 3 ); 
+remove_action( 'wp_head', 'feed_links', 2 );
+remove_action( 'wp_head', 'rsd_link' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
+remove_action( 'wp_head', 'index_rel_link' );
+remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
+remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
+
+//3.0+
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 ); 
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 ); // 
+
+add_filter('template_redirect', function(){   if( is_page() ) remove_action( "wp_head", "rel_canonical" ); }); 
+add_filter('the_generator', '__return_empty_string'); 
+
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 
 /**
  * Implement the Custom Header feature.
