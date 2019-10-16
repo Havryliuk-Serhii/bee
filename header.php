@@ -50,58 +50,32 @@
 		    </div>
 		  </div>
     </div>
-	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-	    <div class="container d-flex align-items-center">
+	  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+	    	<div class="container d-flex align-items-center">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-	      <form action="#" class="searchform order-lg-last">
-          <div class="form-group d-flex">
-            <input type="text" class="form-control pl-3" placeholder="Search">
-            <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
-          </div>
-        </form>
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-		  wp_nav_menu( [
-			'theme_location' => 'primary',
-			'menu' => '',
-			'container' => 'div',
-			'container_class' => '',
-			'container_id' => '',
-			'menu_class' => 'menu',
-			'menu_id' => '',
-			'echo' => true,
-			'fallback_cb' => 'wp_page_menu',
-			'before' => '',
-			'after' => '',
-			'link_before' => '',
-			'link_after' => '',
-			'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'depth' => 0,
-			'walker' => '',
-		  ] );
-	        <!--<ul class="navbar-nav mr-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
-	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	        	<li class="nav-item"><a href="project.html" class="nav-link">Project</a></li>
-	        	<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	        </ul>-->
-	      </div>
-	    </div>
-	  </nav>
+	        		<span class="oi oi-menu"></span> Menu
+	      		</button>
+	      		<form action="#" class="searchform order-lg-last">
+          			<div class="form-group d-flex">
+            			<input type="text" class="form-control pl-3" placeholder="Search">
+           				<button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
+          			</div>
+        		</form>
+	      		<div class="collapse navbar-collapse" id="ftco-nav">
+				  <?php 
+					wp_nav_menu( [
+					'theme_location' => 'primary',
+					'container' => false,
+					'menu_class' => 'menu',
+					'menu_id' => '',
+					'fallback_cb' => '__return_false',
+					'items_wrap' => '<ul id="%1$s" class="navbar-nav mr-auto">%3$s</ul>',
+					'depth' => 0,
+					'walker' => new Bootstrap_Menu_Walker(),
+					] );
+					?>
+	        	</div>
+	    	</div>
+	  	</nav>
     <!-- END nav -->
 
-<!--
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bee' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
