@@ -55,12 +55,7 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        		<span class="oi oi-menu"></span> Menu
 	      		</button>
-	      		<form action="#" class="searchform order-lg-last">
-          			<div class="form-group d-flex">
-            			<input type="text" class="form-control pl-3" placeholder="Search">
-           				<button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
-          			</div>
-        		</form>
+	      		<?php get_search_form(); ?>
 	      		<div class="collapse navbar-collapse" id="ftco-nav">
 				  <?php 
 					wp_nav_menu( [

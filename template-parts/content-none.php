@@ -13,8 +13,10 @@
 	<header class="page-header">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'bee' ); ?></h1>
 	</header><!-- .page-header -->
-
-	<div class="page-content">
+	<div class="container">
+	<div class="row">
+		
+		<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 
@@ -48,4 +50,6 @@
 		endif;
 		?>
 	</div><!-- .page-content -->
+	</div>
+	</div>
 </section><!-- .no-results -->
