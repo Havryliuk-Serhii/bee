@@ -4,7 +4,7 @@
  */
 get_header(); ?>
 <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+	  <div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_1.jpg') ?>);" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -17,7 +17,7 @@ get_header(); ?>
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(images/bg_2.jpg);" data-stellar-background-ratio="0.5">
+      <div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_2.jpg') ?>);" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -147,7 +147,7 @@ get_header(); ?>
 		</section>
 		
 		
-		<section class="ftco-intro" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+		<section class="ftco-intro" style="background-image: url(<?php echo get_theme_file_uri('/images/bg_3.jpg') ?>);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-center">
@@ -611,6 +611,6 @@ get_header(); ?>
           </div>
         </div>
 			</div>
-		</section>
+
 
 <?php get_footer(); ?>		
