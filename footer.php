@@ -9,10 +9,15 @@
  * @package bee
  */
 
+$ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
+ $ftco_title_2 = get_post_meta(5, 'ftco_title_2', true);
+ $ftco_title_3 = get_post_meta(5, 'ftco_title_3', true);
+
+
 ?>
 		</section>
 <footer class="ftco-footer ftco-bg-dark ftco-section">
-      <div class="container">
+  <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-5">
@@ -27,38 +32,42 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-5 ml-md-4">
-              <h2 class="ftco-heading-2">Services</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Construction</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Renovation</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Painting</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Interior Design</a></li>
-                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Exterior Design</a></li>
-              </ul>
+              <h2 class="ftco-heading-2"><?php echo $ftco_title_1; ?></h2>
+              <?php 
+                wp_nav_menu( [
+                  'theme_location'  => 'services',
+                  'container'       => false, 
+                  'menu_class'      => 'menu', 
+                  'menu_id'         => '',                 
+                  'fallback_cb'     => '__return_false',
+                  'items_wrap'      => '<ul class="list-unstyled"><li><a href="<?php echo get_permalink(); ?>">%3$s</a></li></ul>',
+                 ] );
+              ?>
+              
             </div>
           </div>
           <div class="col-md-5">
             <div class="ftco-footer-widget mb-5">
-              <h2 class="ftco-heading-2">Recent Blog</h2>
+              <h2 class="ftco-heading-2"><?php echo $ftco_title_2; ?></h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4"> <?php echo get_the_post_thumbnail(53); ?></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(53); ?></a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Feb. 07, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-calendar"></span> <?php the_time('M. j, Y')?></a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-person"></span> <?php the_author() ?></a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-chat"></span> <?php comments_popup_link('no comments', '1', '%')?></a></div>
                   </div>
                 </div>
               </div>
               <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4"><?php echo get_the_post_thumbnail(56); ?></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(56); ?></a></h3>
                   <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Feb. 07, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-calendar"></span> <?php the_time('M. j, Y')?></a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-person"></span> <?php the_author() ?></a></div>
+                    <div><a href="<?php the_permalink(); ?>"><span class="icon-chat"></span> <?php comments_popup_link('no comments', '1', '%')?></a></div>
                   </div>
                 </div>
               </div>
@@ -66,7 +75,7 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-5">
-            	<h2 class="ftco-heading-2">Newsletter</h2>
+            	<h2 class="ftco-heading-2"><?php echo $ftco_title_3; ?></h2>
               <form action="#" class="subscribe-form">
                 <div class="form-group">
                   <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
@@ -84,8 +93,10 @@
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
-      </div>
-    </footer>
+  </div>
+</footer>
+
+
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
