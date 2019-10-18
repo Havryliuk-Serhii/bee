@@ -325,3 +325,15 @@ class Bootstrap_Menu_Walker extends Walker_Nav_Menu {
 	  $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }
+
+/**
+* Social icons link
+**/
+register_sidebar(array(
+	'name' => 'Social icons link',
+	'id' => 'social_icons',
+	'description' => 'Use the Text widget to add HTML code',
+	'before_widget' => '',
+	'after_widget' => ''
+)
+);

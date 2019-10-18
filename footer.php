@@ -18,8 +18,10 @@
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span><?php bloginfo( 'name' ); ?></h2>
               <p><?php bloginfo( 'description' ); ?></p>
-
-			        <?php get_template_part( 'template-parts/social-list', 'footer' ) ;?>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+			        <?php if(!dynamic_sidebar( 'social_icons' )): ?>
+              <?php endif; ?>
+              </ul>
             </div>
             
           </div>
