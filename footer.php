@@ -17,27 +17,9 @@
           <div class="col-md">
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span><?php bloginfo( 'name' ); ?></h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-			  <?php 
-			  	wp_nav_menu( [
-				'theme_location'  => 'social',
-				'menu'            => '', 
-				'container'       => false, 
-				'menu_class' => 'menu',
-				'menu_id' => '',
-				'fallback_cb' => '__return_false',
-				'before'          => '<li class="ftco-animate">',
-				'after'           => '</li>',
-				'items_wrap'      => '<ul id="%1$s" class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">%3$s</ul>',
-				'depth'           => 0,
-				
-			] );
-			  ?>
-             <!-- <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              </ul>-->
+              <p><?php bloginfo( 'description' ); ?></p>
+
+			        <?php get_template_part( 'template-parts/social-list', 'footer' ) ;?>
             </div>
             
           </div>

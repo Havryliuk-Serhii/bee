@@ -48,9 +48,7 @@ if ( ! function_exists( 'bee_setup' ) ) :
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'bee' ),
 			'services' => esc_html__( 'Services Menu', 'bee' ),
-			'social' => esc_html__( 'Social Links Menu', 'bee' ),
-
-		) );
+			) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
