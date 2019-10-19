@@ -89,7 +89,10 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
           <div class="col-md-12 text-center">
 
             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="<?php echo esc_url( __( 'https://colorlib.com', 'bee' ) ); ?>" target="_blank"><?php
+				/* translators: %s: Colorlib */
+				printf( __( '%s.', 'bee' ), 'Colorlib' );
+				?></a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
           </div>
         </div>
