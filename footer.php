@@ -37,10 +37,12 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
                 wp_nav_menu( [
                   'theme_location'  => 'services',
                   'container'       => false, 
-                  'menu_class'      => 'menu', 
-                  'menu_id'         => '',                 
+                  'menu_class'      => 'list-unstyled', 
+                  'menu_id'         => '',  
+                                
                   'fallback_cb'     => '__return_false',
-                  'items_wrap'      => '<ul class="list-unstyled"><li><a href="<?php echo get_permalink(); ?>">%3$s</a></li></ul>',
+
+                  'items_wrap'      => '<ul class="list-unstyled">%3$s</ul>',
                  ] );
               ?>
               
@@ -50,7 +52,7 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2"><?php echo $ftco_title_2; ?></h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4"> <?php echo get_the_post_thumbnail(53); ?></a>
+                <a class="blog-img mr-4"style="background-image: url(<?php echo get_theme_file_uri( '/images/image_1.jpg' ) ?>);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(53); ?></a></h3>
                   <div class="meta">
@@ -61,7 +63,7 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
                 </div>
               </div>
               <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4"><?php echo get_the_post_thumbnail(56); ?></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php echo get_theme_file_uri( '/images/image_2.jpg' ) ?>);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(56); ?></a></h3>
                   <div class="meta">

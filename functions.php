@@ -337,3 +337,12 @@ register_sidebar(array(
 	'after_widget' => ''
 )
 );
+
+add_filter('nav_menu_item_id', 'filter_menu_id');
+add_filter( 'nav_menu_css_class', 'filter_menu_li' );
+function filter_menu_li(){
+    return array('');   
+}
+function filter_menu_id(){
+    return; 
+}
