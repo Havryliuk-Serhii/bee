@@ -9,7 +9,12 @@
 ?>
 
 <section class="home-slider owl-carousel">
-	  <div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_1.jpg') ?>);" data-stellar-background-ratio="0.5">
+<?php $slider = new WP_Query( array('post_type' => 'slider', 'order' => 'ASC') ); ?>
+<?php if ($slider->have_posts()) :  while ($slider->have_posts()) : $slider->the_post(); ?>
+	<?php the_post_thumbnail('full'); ?>
+<?php endwhile; ?>
+<?php endif; ?>
+	  <!--<div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_1.jpg') ?>);" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -33,5 +38,5 @@
           </div>
         </div>
         </div>
-      </div>
+      </div>-->
     </section>

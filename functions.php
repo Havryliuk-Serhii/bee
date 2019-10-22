@@ -346,3 +346,7 @@ function filter_menu_li(){
 function filter_menu_id(){
     return; 
 }
+
+/**
+ * Slider
+ */
