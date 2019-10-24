@@ -63,7 +63,7 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
                 </div>
               </div>
               <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?php echo get_theme_file_uri( '/images/image_2.jpg' ) ?>);"></a>
+                <a class="blog-img mr-4"><?php the_post_thumbnail(56);?></a>
                 <div class="text">
                   <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php echo get_the_title(56); ?></a></h3>
                   <div class="meta">
