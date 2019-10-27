@@ -6,37 +6,28 @@
  * @package bee
  */
 
+$btn_request = get_post_meta('', 'btn_request', true);
+
 ?>
 
 <section class="home-slider owl-carousel">
-<?php $slider = new WP_Query( array('post_type' => 'slider', 'order' => 'ASC') ); ?>
-<?php if ($slider->have_posts()) :  while ($slider->have_posts()) : $slider->the_post(); ?>
-	<?php the_post_thumbnail('full'); ?>
-<?php endwhile; ?>
-<?php endif; ?>
-	  <!--<div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_1.jpg') ?>);" data-stellar-background-ratio="0.5">
-      	<div class="overlay"></div>
+<?php $slider = new WP_Query(array('post_type' => 'slider')) ?>
+<?php if ( $slider->have_posts() ) : ?>
+  <div class="slider-item" data-stellar-background-ratio="0.5" style="<?php echo ; ?>">
+    <?php while ( $slider->have_posts() ) : $slider->the_post(); ?>
+      <div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-          <div class="col-md-6 text ftco-animate pl-md-5">
-            <h1 class="mb-4">Base Construction <span>Build The Future</span></h1>
-            <h3 class="subheading">A small river named Duden flows by their place and supplies it with the necessary regelialia</h3>
-            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Request A Quote</a></p>
-          </div>
-        </div>
+            <div class="col-md-6 text ftco-animate pl-md-5">
+            <h1 class="mb-4"><?php the_title();?></h1>
+            <?php the_excerpt(  );?>
+            <p><a href="" class="btn btn-secondary px-4 py-3 mt-3"><?php echo $btn_request;?></a></p>
+            </div>
         </div>
       </div>
+      <?php endwhile; ?>
+	</div>
+    <?php endif; ?>
 
-      <div class="slider-item" style="background-image:url(<?php echo get_theme_file_uri('/images/bg_2.jpg') ?>);" data-stellar-background-ratio="0.5">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-          <div class="col-md-6 text ftco-animate pl-md-5">
-            <h1 class="mb-4">We Turn Your <span>Vision Into Reality</span></h1>
-            <h3 class="subheading">A small river named Duden flows by their place and supplies it with the necessary regelialia</h3>
-            <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">Request A Quote</a></p>
-          </div>
-        </div>
-        </div>
-      </div>-->
-    </section>
+
+</section>

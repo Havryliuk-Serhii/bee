@@ -9903,3 +9903,7 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+.blog-img  img{
+  width: 80px;
+  height: 80px;
+}

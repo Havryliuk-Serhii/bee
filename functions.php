@@ -350,3 +350,87 @@ function filter_menu_id(){
 /**
  * Slider
  */
+function slider_posts(){  
+	$labels = array(  
+		'name'              => _x( 'Slides', 'post type general name' ),
+		'singular_name'     => _x( 'Slide', 'post type singular name' ),
+		'add_new'           => __( 'Add New Slide' ),
+		'add_new_item'      => __( 'Add New Slide' ),
+		'edit_item'         => __( 'Edit Slide' ),
+		'new_item'          => __( 'New Slide' ),
+		'view_item'         => __( 'View Slide' ),
+		'search_items'      => __( 'Search Slides' ),
+		'not_found'         => __( 'Slide' ),
+		'not_found_in_trash'=> __( 'Slide' ),
+		'parent_item_colon' => __( 'Slide' ),
+		'menu_name'         => __( 'Slides' )
+	);  
+	$args = array(  
+		'labels' => $labels,  
+		'public' => true,  
+		'publicly_queryable' => true,  
+		'show_ui' => true,  
+		'show_in_menu' => true,  
+		'query_var' => true,  
+		'rewrite' => true,  
+		'capability_type' => 'post',  
+		'has_archive' => true,  
+		'hierarchical' => false,  
+		'menu_position' => 11,  
+		'supports' => array('title', 'thumbnail', 'excerpt', 'editor', 'custom-fields')  
+	);  
+	register_post_type('slider', $args);  
+}
+add_action('init', 'slider_posts');
+
+/**
+ * Custom thumbnail size
+ */
+add_image_size( 'little-thumb', 80, 80, true );
+
+/**
+ * Metabox for slider background image
+ */
+
+ <?php
+class trueMetaBox{
+	function __constract($options) {
+		$this->options = $options;
+		$this->prefix = $this->options['id'] .'_';
+		add_action('add_meta_boxes', array(&$this, 'create'));
+		add_action( 'save_post', array(&$this, 'save'), 1, 2 );
+	}
+	function create(){
+		foreach ($this->options['post'] as $post_type){
+			if (current_user_can($this->options['cap'])) {
+				add_meta_box( $this->options['id'], $this->options['name'], array(&$this,'fill'), $post_type, $this->options['pos'],$this->options['pri']);
+			}
+		}
+	}
+	function fill(){
+		global $post; $p_i_d = $post->ID;
+		wp_nonce_field( $this->options['id'], $this->options['id'].'_wpnonce', false, true );?>
+		<table class="form-table"><tbody><?php 
+		foreach ( $this->options['args'] as $param) {
+			if (current_user_can( $param['cap'])){
+				?><tr><?php
+				if(!$value = get_post_meta($post->ID, $this->prefix .$param['id'] , true)) $value = $param['std'];
+				switch ($param['type']){
+					case 'text':{?>
+						<th scope="row"><lable for="<?php echo $this->prefix .$param['id'] ?>"><?php echo $param['title'] ?></lable></th>
+						<td>
+							<input name="<?php echo $this->prefix .$param['id'] ?>" type="<?php echo $param['type'] ?>" id="<?php echo $this->prefix .$param['id'] ?>" value="<?php echo $value ?>" placeholder="<?php echo $param['placeholder'] ?>" class="regular-text" /><br/>
+							<span class="description"><?php echo $param['desc'] ?></span>
+						</td>
+						<?php 
+						break;
+					}
+					case 'textarea':{ ?>
+						<th scope="row"><lable for="<?php echo $this->prefix .$param['id'] ?>"><?php echo $param['title'] ?></lable></th>
+						
+
+				}
+			}
+		}
+	}
+}
