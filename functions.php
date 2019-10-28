@@ -377,9 +377,19 @@ function slider_posts(){
 		'has_archive' => true,  
 		'hierarchical' => false,  
 		'menu_position' => 11,  
-		'supports' => array('title', 'thumbnail', 'excerpt', 'editor', 'custom-fields')  
+		'supports' => array('title', 'thumbnail', 'excerpt', 'editor', 'custom-fields'),
+		'register_meta_box_cb' => 'slider_background_image'  
 	);  
-	register_post_type('slider', $args);  
+	register_post_type('slider', $args); 
+		function slider_background_image()
+			{
+				global $post;
+
+				$custom = get_post_custom( $post->ID );
+				$slider_bg = $custom['<?php the_post_thumbnail('slider');?>'][0];
+
+				return print 'style="background-image:url(images/'$slider_bg');"';
+			} 
 }
 add_action('init', 'slider_posts');
 
@@ -392,7 +402,7 @@ add_image_size( 'little-thumb', 80, 80, true );
  * Metabox for slider background image
  */
 
-<?php
+
 class trueMetaBox {
 	function __construct($options) {
 		$this->options = $options;
@@ -417,7 +427,7 @@ class trueMetaBox {
 			?><tr><?php
 				if(!$value = get_post_meta($post->ID, $this->prefix .$param['id'] , true)) $value = $param['std'];
 				switch ( $param['type'] ) {
-					case 'text':{ ?>
+					case 'background':{ ?>
 						<th scope="row"><label for="<?php echo $this->prefix .$param['id'] ?>"><?php echo $param['title'] ?></label></th>
 						<td>
 							<input name="<?php echo $this->prefix .$param['id'] ?>" type="<?php echo $param['type'] ?>" id="<?php echo $this->prefix .$param['id'] ?>" value="<?php echo $value ?>" placeholder="<?php echo $param['placeholder'] ?>" class="regular-text" /><br />
@@ -466,7 +476,7 @@ class trueMetaBox {
 	}
 	function save($post_id, $post){
 		if ( !wp_verify_nonce( $_POST[ $this->options['id'].'_wpnonce' ], $this->options['id'] ) ) return;
-		if ( !current_user_can( 'edit_post', $post_id ) ) return;
+		if ( !current_user_can( 'edit_slides', $post_id ) ) return;
 		if ( !in_array($post->post_type, $this->options['post'])) return;
 		foreach ( $this->options['args'] as $param ) {
 			if ( current_user_can( $param['cap'] ) ) {
@@ -480,45 +490,22 @@ class trueMetaBox {
 	}
 }
 $options = array(
-	array( // первый метабокс
-		'id'	=>	'meta1', // ID метабокса, а также префикс названия произвольного поля
-		'name'	=>	'Доп. настройки 1', // заголовок метабокса
-		'post'	=>	array('post'), // типы постов для которых нужно отобразить метабокс
-		'pos'	=>	'normal', // расположение, параметр $context функции add_meta_box()
-		'pri'	=>	'high', // приоритет, параметр $priority функции add_meta_box()
-		'cap'	=>	'edit_posts', // какие права должны быть у пользователя
+	array( 
+		'id'	=>	'background',//meta1
+		'name'	=>	'Slide image', //Доп. настройки 1
+		'post'	=>	array('slide'), //post
+		'pos'	=>	'normal', 
+		'pri'	=>	'high', 
+		'cap'	=>	'edit_slides',//edit_posts 
 		'args'	=>	array(
 			array(
-				'id'			=>	'field_1', // атрибуты name и id без префикса, например с префиксом будет meta1_field_1
-				'title'			=>	'Текст', // лейбл поля
-				'type'			=>	'text', // тип, в данном случае обычное текстовое поле
-				'placeholder'		=>	'плейсхолдер, например введите email', // атрибут placeholder
-				'desc'			=>	'пример использования текстового поля ввода в метабоксе', // что-то типа пояснения, подписи к полю
-				'cap'			=>	'edit_posts'
-			),
-			array(
-				'id'			=>	'terms',
-				'title'			=>	'Чекбокс',
-				'type'			=>	'checkbox', // чекбокс
-				'desc'			=>	'пример чекбокса',
-				'cap'			=>	'edit_posts'
-			),
-			array(
-				'id'			=>	'textfield',
-				'title'			=>	'Текстовое поле',
-				'type'			=>	'textarea', // большое текстовое поле
-				'placeholder'		=>	'сюда тоже можно забацать плейсхолдер',
-				'desc'			=>	'пример использования большого текстового поля ввода в метабоксе',
-				'cap'			=>	'edit_posts'
-			),
-			array(
-				'id'			=>	'select1',
-				'title'			=>	'Выпадающий список',
-				'type'			=>	'select', // выпадающий список
-				'desc'			=>	'тут тоже можно написать пояснение к полю, значения же задаются через ассоциативный массив',
-				'cap'			=>	'edit_posts',
-				'args'			=>	array('value_1' => 'Значение 1', '2' => 'Значение 2', 'Значение_3' => 'Значение 3' ) // элементы списка задаются через массив args, по типу value=>лейбл
-			)
+				'id'			=>	'background', //field_1 
+				'title'			=>	'Background', //Текст
+				'type'			=>	'background', //text
+				'placeholder'	=>	'', 
+				'desc'			=>	'', 
+				'cap'			=>	'edit_slides'//edit_posts
+			),	
 		)
 	),
 	
