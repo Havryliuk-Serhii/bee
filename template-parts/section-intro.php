@@ -12,8 +12,8 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-9 text-center">
-						<h2>Lets Build Your Dream Together</h2>
-						<p>We can manage your dream building A small river named Duden flows by their place</p>
+						<h2><?php the_title();?></h2>
+						<?php the_content();?>
 						<p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Know more about us</a></p>
 					</div>
 				</div>

@@ -38,10 +38,8 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
                   'theme_location'  => 'services',
                   'container'       => false, 
                   'menu_class'      => 'list-unstyled', 
-                  'menu_id'         => '',  
-                                
+                  'menu_id'         => '',                         
                   'fallback_cb'     => '__return_false',
-
                   'items_wrap'      => '<ul class="list-unstyled">%3$s</ul>',
                  ] );
               ?>

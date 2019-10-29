@@ -13,7 +13,7 @@ $btn_request = get_post_meta('', 'btn_request', true);
 <section class="home-slider owl-carousel">
 <?php $slider = new WP_Query(array('post_type' => 'slider')) ?>
 <?php if ( $slider->have_posts() ) : ?>
-  <div class="slider-item" data-stellar-background-ratio="0.5" style="<?php echo get_the_post_thumbnail_url(); ?>">
+  <div class="slider-item" data-stellar-background-ratio="0.5" style="">
     <?php while ( $slider->have_posts() ) : $slider->the_post(); ?>
       <div class="overlay"></div>
         <div class="container">
