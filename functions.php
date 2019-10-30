@@ -337,7 +337,9 @@ register_sidebar(array(
 	'after_widget' => ''
 )
 );
-
+/**
+ * Delete menu item class
+ */
 add_filter('nav_menu_item_id', 'filter_menu_id');
 add_filter( 'nav_menu_css_class', 'filter_menu_li' );
 function filter_menu_li(){
@@ -380,7 +382,7 @@ function slider_posts(){
 		'supports' => array('title', 'thumbnail', 'excerpt', 'editor')
 		 
 	);  
-	
+	register_post_type('slider', $args);
 }
 add_action('init', 'slider_posts');
 

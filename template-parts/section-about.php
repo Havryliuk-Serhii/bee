@@ -11,10 +11,10 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-md-4">
-    				<div class="request-quote">
+    				<div class="request-quote" id="request-form">
     					<div class="bg-primary py-4">
     						<span class="subheading">Be Part of our Business</span>
-    						<h3>Request A Quote</h3>
+    						<h3><?php echo $title_request; ?></h3>
     					</div>
     					<form action="#" class="request-form ftco-animate">
 		    				<div class="form-group">
@@ -52,11 +52,11 @@
     			</div>
     			<div class="col-md-8 wrap-about py-5 ftco-animate">
 	          <div class="heading-section mb-5">
-	            <h2 class="mb-4"><?php the_title();?></h2>
+	            <h2 class="mb-4"><?php echo get_the_title(70); ?></h2>
 	          </div>
 	          <div class="">
-							<p class="mb-5"><?php the_excerpt(  );?></p>
-							<p><a href="#" class="btn btn-secondary px-5 py-3">Read More</a></p>
+							<?php echo get_the_excerpt(70);?>
+							<p><a href="<?php the_permalink(); ?>" class="btn btn-secondary px-5 py-3">Read More</a></p>
 						</div>
 					</div>
     		</div>

@@ -12,8 +12,8 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-9 text-center">
-						<h2><?php the_title();?></h2>
-						<?php the_content();?>
+						<h2><?php echo get_the_title(74);?></h2>
+						<?php echo get_the_excerpt(74); ?>
 						<p class="mb-0"><a href="#" class="btn btn-primary px-4 py-3">Know more about us</a></p>
 					</div>
 				</div>

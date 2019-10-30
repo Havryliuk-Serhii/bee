@@ -4,6 +4,8 @@
  *
  * @package bee
  */
+$title_request = get_post_meta(5, 'title_request', true);
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -39,8 +41,8 @@
 					    </div>
 					    <div class="col-md topper d-flex align-items-center align-items-stretch">
 					    	<p class="mb-0 d-flex d-block">
-					    		<a href="#" class="btn btn-primary d-flex align-items-center justify-content-center">
-					    			<span>Request A Quote</span>
+					    		<a href="<?php echo get_the_permalink();?>" class="btn btn-primary d-flex align-items-center justify-content-center">
+					    			<span><?php echo $title_request; ?></span>
 					    		</a>
 					    	</p>
 					    </div>

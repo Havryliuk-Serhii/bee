@@ -18,71 +18,38 @@
           </div>
         </div>
 				<div class="row">
-          <div class="col-md-4 ftco-animate">
+        <?php
+$id = ; 
+$posts_about = new WP_Query(array('cat' => $id, 'posts_per_page' => 3));
+?>
+
+<?php if ( $posts_about->have_posts() ) : ?> 
+    <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+
+<?php while ( $posts_about->have_posts() ) : $posts_about->the_post(); ?>
+<a href="<?php the_permalink(); ?>" class="block-20" style="background-image: url('images/image_1.jpg');">
 								<div class="meta-date text-center p-2">
-                  <span class="day">07</span>
-                  <span class="mos">February</span>
-                  <span class="yr">2019</span>
+                  <span class="day"><?php the_time('j')?></span>
+                  <span class="mos"><?php the_time('M')?></span>
+                  <span class="yr"><?php the_time('Y')?></span>
                 </div>
               </a>
               <div class="text pt-4">
-                <h3 class="heading"><a href="#">Office of the Florida</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <h3 class="heading"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                <?php the_excerpt(); ?>
                 <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+	                <p class="mb-0"><a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
 	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
+	                	<a href="<?php the_permalink(); ?>" class="mr-2"><?php the_author() ?></a>
+	                	<a href="<?php the_permalink(); ?>" class="meta-chat"><span class="icon-chat"></span>  <?php comments_popup_link('0', '1', '%')?></a>
 	                </p>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-								<div class="meta-date text-center p-2">
-                  <span class="day">07</span>
-                  <span class="mos">February</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text pt-4">
-                <h3 class="heading"><a href="#">Office of the Florida</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ftco-animate">
-            <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-								<div class="meta-date text-center p-2">
-                  <span class="day">07</span>
-                  <span class="mos">February</span>
-                  <span class="yr">2019</span>
-                </div>
-              </a>
-              <div class="text pt-4">
-                <h3 class="heading"><a href="#">Office of the Florida</a></h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <div class="d-flex align-items-center mt-4">
-	                <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
-	                <p class="ml-auto mb-0">
-	                	<a href="#" class="mr-2">Admin</a>
-	                	<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-	                </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div>		
+<?php endwhile; ?>
+	</div>
+<?php endif; ?>     
         </div>
 			</div>
