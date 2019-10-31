@@ -20,14 +20,14 @@
 				<div class="row">
         <?php
 $id = ; 
-$posts_about = new WP_Query(array('cat' => $id, 'posts_per_page' => 3));
+$posts_blog = new WP_Query(array('cat' => $id, 'posts_per_page' => 3));
 ?>
 
-<?php if ( $posts_about->have_posts() ) : ?> 
+<?php if ( $posts_blog->have_posts() ) : ?> 
     <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
 
-<?php while ( $posts_about->have_posts() ) : $posts_about->the_post(); ?>
+<?php while ( $posts_blog->have_posts() ) : $posts_blog->the_post(); ?>
 <a href="<?php the_permalink(); ?>" class="block-20" style="background-image: url('images/image_1.jpg');">
 								<div class="meta-date text-center p-2">
                   <span class="day"><?php the_time('j')?></span>
@@ -53,3 +53,4 @@ $posts_about = new WP_Query(array('cat' => $id, 'posts_per_page' => 3));
 <?php endif; ?>     
         </div>
 			</div>
+</section>

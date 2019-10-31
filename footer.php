@@ -15,7 +15,6 @@ $ftco_title_1 = get_post_meta(5, 'ftco_title_1', true);
 
 
 ?>
-		</section>
 <footer class="ftco-footer ftco-bg-dark ftco-section">
   <div class="container">
         <div class="row mb-5">
