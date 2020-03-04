@@ -248,11 +248,16 @@ add_image_size( 'little-thumb', 80, 80, true );
 /**
  * Custom admin page
  **/
- function bee_admin_page() {
-	 add_menu_page( 'Bee Theme Options', 'Bee Theme', 'manage_options', 'bee_option', 'bee_theme_create_page', 'dashicons-admin-generic', 100 );
+function bee_admin_page() {
+	add_menu_page( 'Bee Theme Options', 'Bee Options', 'manage_options', 'bee_option', 'bee_theme_create_page', 'dashicons-admin-generic', 100 );
+	add_submenu_page( 'bee_option', 'Bee Theme Options', 'General', 'manage_options', 'bee_option', 'bee_theme_create_page');
+	add_submenu_page( 'bee_option', 'Bee Settings', 'Settings', 'manage_options', 'bee_option_settings', 'bee_theme_settings_page');
  }
  add_action( 'admin_menu', 'bee_admin_page');
 
 function bee_theme_create_page(){
+	require_once( get_template_directory() . '/inc/bee-admin.php');
+}
+function bee_theme_settings_page(){
 
 }
