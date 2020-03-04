@@ -20,7 +20,8 @@ if ( ! function_exists( 'bee_setup' ) ) :
 			'comment-list',
 			'gallery',
 			'caption',
-		) );		
+		) );
+	}
 endif;
 add_action( 'after_setup_theme', 'bee_setup' );
 
@@ -55,7 +56,7 @@ function bee_scripts() {
 	wp_enqueue_style( 'bee-timepicker', get_template_directory_uri() . '/css/jquery.timepicker.css');
 	wp_enqueue_style( 'bee-flaticon', get_template_directory_uri() . '/css/flaticon.css');
 	wp_enqueue_style( 'bee-icomoon', get_template_directory_uri() . '/css/icomoon.css');
-	wp_enqueue_style( 'bee-main-styles', get_template_directory_uri() . '/css/style.css');
+	wp_enqueue_style( 'bee-main-styles', get_template_directory_uri() . '/css/main.css');
 
 	wp_enqueue_style( 'bee-google-poppins-font', 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900');
 	wp_enqueue_style( 'bee-google-nunito-font', 'https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900');
@@ -89,21 +90,21 @@ function bee_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'bee_scripts' );
 
-remove_action( 'wp_head', 'feed_links_extra', 3 ); 
+remove_action( 'wp_head', 'feed_links_extra', 3 );
 remove_action( 'wp_head', 'feed_links', 2 );
 remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'index_rel_link' );
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 ); 
-remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 ); 
+remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 
 //3.0+
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 ); 
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 ); // 
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 ); //
 
-add_filter('template_redirect', function(){   if( is_page() ) remove_action( "wp_head", "rel_canonical" ); }); 
-add_filter('the_generator', '__return_empty_string'); 
+add_filter('template_redirect', function(){   if( is_page() ) remove_action( "wp_head", "rel_canonical" ); });
+add_filter('the_generator', '__return_empty_string');
 
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
@@ -111,18 +112,17 @@ remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 /**
  * Add  e-mail and phone textarea
  */
-
 function my_email_options(){
 	add_settings_field(
-	'email', 
-	'Write youre e-mail', 
+	'email',
+	'Write youre e-mail',
 	'display_email',
-	'general' 
+	'general'
 );
 
 register_setting(
-	'general', 
-	'my_email' 
+	'general',
+	'my_email'
 );
 }
 add_action('admin_init', 'my_email_options');
@@ -133,15 +133,15 @@ echo "<input type='text' class='regular-text' name='my_email' value='" . esc_att
 
 function my_phone_options(){
 	add_settings_field(
-	'phone', 
-	'Write youre phone', 
+	'phone',
+	'Write youre phone',
 	'display_phone',
-	'general' 
+	'general'
 );
 
 register_setting(
-	'general', 
-	'my_phone' 
+	'general',
+	'my_phone'
 );
 }
 add_action('admin_init', 'my_phone_options');
@@ -149,10 +149,9 @@ function display_phone(){
 echo "<input type='text' class='regular-text' name='my_phone' value='" . esc_attr(get_option('my_phone')) . "'>";
 }
 
-/** 
+/**
  * Bootstrap Walker Nav menu
-*/
-
+**/
 class Bootstrap_Menu_Walker extends Walker_Nav_Menu {
 
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -231,18 +230,29 @@ register_sidebar(array(
 
 /**
  * Delete menu item class
- */
+ **/
 add_filter('nav_menu_item_id', 'filter_menu_id');
 add_filter( 'nav_menu_css_class', 'filter_menu_li' );
 function filter_menu_li(){
-    return array('');   
+    return array('');
 }
 function filter_menu_id(){
-    return; 
+    return;
 }
 
 /**
  * Custom thumbnail size
- */
+ **/
 add_image_size( 'little-thumb', 80, 80, true );
 
+/**
+ * Custom admin page
+ **/
+ function bee_admin_page() {
+	 add_menu_page( 'Bee Theme Options', 'Bee Theme', 'manage_options', 'bee_option', 'bee_theme_create_page', 'dashicons-admin-generic', 100 );
+ }
+ add_action( 'admin_menu', 'bee_admin_page');
+
+function bee_theme_create_page(){
+
+}
