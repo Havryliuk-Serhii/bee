@@ -109,45 +109,6 @@ add_filter('the_generator', '__return_empty_string');
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 
-/**
- * Add  e-mail and phone textarea
- */
-function my_email_options(){
-	add_settings_field(
-	'email',
-	'Write youre e-mail',
-	'display_email',
-	'general'
-);
-
-register_setting(
-	'general',
-	'my_email'
-);
-}
-add_action('admin_init', 'my_email_options');
-function display_email(){
-echo "<input type='text' class='regular-text' name='my_email' value='" . esc_attr(get_option('my_email')) . "'>";
-}
-
-
-function my_phone_options(){
-	add_settings_field(
-	'phone',
-	'Write youre phone',
-	'display_phone',
-	'general'
-);
-
-register_setting(
-	'general',
-	'my_phone'
-);
-}
-add_action('admin_init', 'my_phone_options');
-function display_phone(){
-echo "<input type='text' class='regular-text' name='my_phone' value='" . esc_attr(get_option('my_phone')) . "'>";
-}
 
 /**
  * Bootstrap Walker Nav menu
@@ -245,19 +206,4 @@ function filter_menu_id(){
  **/
 add_image_size( 'little-thumb', 80, 80, true );
 
-/**
- * Custom admin page
- **/
-function bee_admin_page() {
-	add_menu_page( 'Bee Theme Options', 'Bee Options', 'manage_options', 'bee_option', 'bee_theme_create_page', 'dashicons-admin-generic', 100 );
-	add_submenu_page( 'bee_option', 'Bee Theme Options', 'General', 'manage_options', 'bee_option', 'bee_theme_create_page');
-	add_submenu_page( 'bee_option', 'Bee Settings', 'Settings', 'manage_options', 'bee_option_settings', 'bee_theme_settings_page');
- }
- add_action( 'admin_menu', 'bee_admin_page');
-
-function bee_theme_create_page(){
-	require_once( get_template_directory() . '/inc/bee-admin.php');
-}
-function bee_theme_settings_page(){
-
-}
+require get_template_directory().'/inc/function-admin.php';
