@@ -1,11 +1,11 @@
-<?php  
+<?php
 /**
  *Template Name: Home Page
  */
-get_header(); ?>
+get_header('main'); ?>
 
-<?php 
-get_template_part( 'template-parts/sections/section-slider');	
+<?php
+get_template_part( 'template-parts/sections/section-slider');
 get_template_part( 'template-parts/sections/section-about');
 get_template_part( 'template-parts/sections/section-services');
 get_template_part( 'template-parts/sections/section-intro');
@@ -15,4 +15,4 @@ get_template_part( 'template-parts/sections/section-testimonials');
 get_template_part( 'template-parts/sections/section-blog');
 ?>
 
-<?php get_footer(); ?>		
+<?php get_footer();

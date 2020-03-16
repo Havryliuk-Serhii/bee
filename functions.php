@@ -1,13 +1,27 @@
 <?php
-/**
- * bee functions and definitions
- * @package bee
- */
+ /**
+  * Required: set 'ot_theme_mode' filter to true.
+  **/
+ add_filter( 'ot_theme_mode', '__return_true' );
+add_filter( 'ot_show_new_layout', '__return_false' );
+add_filter( 'ot_show_pages', '__return_false' );
+
+function theme_option_parent($parent){
+  $parent ='';
+  return $parent;
+}
+add_filter( 'ot_theme_options_parent_slug', 'theme_option_parent', 20 );
+
+ /**
+  * Required: include OptionTree.
+  **/
+ require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
+require( trailingslashit( get_template_directory() ) . 'inc/meta-boxes.php' );
+require( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
 
 show_admin_bar(false);
 
-if ( ! function_exists( 'bee_setup' ) ) :
-	function bee_setup() {
+function bee_setup() {
 		add_theme_support( 'post-thumbnails' );
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'bee' ),
@@ -22,7 +36,6 @@ if ( ! function_exists( 'bee_setup' ) ) :
 			'caption',
 		) );
 	}
-endif;
 add_action( 'after_setup_theme', 'bee_setup' );
 
 function bee_widgets_init() {
@@ -40,7 +53,7 @@ add_action( 'widgets_init', 'bee_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
- */
+ **/
 function bee_scripts() {
 
 	wp_enqueue_style( 'bee-style', get_stylesheet_uri() );
@@ -86,7 +99,6 @@ function bee_scripts() {
 	wp_enqueue_script( 'bee-google-map', get_template_directory_uri() . '/js/google-map.js', array(), '', true );
 	wp_enqueue_script( 'bee-main-js', get_template_directory_uri() . '/js/main.js', array(), '', true );
 
-
 }
 add_action( 'wp_enqueue_scripts', 'bee_scripts' );
 
@@ -109,10 +121,49 @@ add_filter('the_generator', '__return_empty_string');
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 
+/**
+ * Add  e-mail and phone textarea
+ **/
+function my_email_options(){
+	add_settings_field(
+	'email',
+	'Write youre e-mail',
+	'display_email',
+	'general'
+);
+
+register_setting(
+	'general',
+	'my_email'
+);
+}
+add_action('admin_init', 'my_email_options');
+function display_email(){
+echo "<input type='text' class='regular-text' name='my_email' value='" . esc_attr(get_option('my_email')) . "'>";
+}
+
+
+function my_phone_options(){
+	add_settings_field(
+	'phone',
+	'Write youre phone',
+	'display_phone',
+	'general'
+);
+
+register_setting(
+	'general',
+	'my_phone'
+);
+}
+add_action('admin_init', 'my_phone_options');
+function display_phone(){
+echo "<input type='text' class='regular-text' name='my_phone' value='" . esc_attr(get_option('my_phone')) . "'>";
+}
 
 /**
  * Bootstrap Walker Nav menu
-**/
+ **/
 class Bootstrap_Menu_Walker extends Walker_Nav_Menu {
 
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
@@ -178,8 +229,8 @@ class Bootstrap_Menu_Walker extends Walker_Nav_Menu {
 }
 
 /**
-* Social icons link
-**/
+ * Social icons link
+ **/
 register_sidebar(array(
 	'name' => 'Social icons link',
 	'id' => 'social_icons',
@@ -200,10 +251,3 @@ function filter_menu_li(){
 function filter_menu_id(){
     return;
 }
-
-/**
- * Custom thumbnail size
- **/
-add_image_size( 'little-thumb', 80, 80, true );
-
-require get_template_directory().'/inc/function-admin.php';

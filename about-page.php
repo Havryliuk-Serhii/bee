@@ -1,12 +1,8 @@
 <?php
 /**
- * The template for displaying page about us
- * @package bee
+ * Template Name: Page About
  */
 get_header(); ?>
 
 
-<?php get_footer(); 		
-
-    
-  
+<?php get_footer();

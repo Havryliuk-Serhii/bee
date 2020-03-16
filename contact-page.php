@@ -1,7 +1,6 @@
-<?php  
+<?php
 /**
- * The template for displaying contact page
- * @package bee
+* Template Name: Page Contact
  */
 get_header(); ?>
 
