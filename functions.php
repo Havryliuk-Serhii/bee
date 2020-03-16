@@ -1,24 +1,4 @@
 <?php
- /**
-  * Required: set 'ot_theme_mode' filter to true.
-  **/
- add_filter( 'ot_theme_mode', '__return_true' );
-add_filter( 'ot_show_new_layout', '__return_false' );
-add_filter( 'ot_show_pages', '__return_false' );
-
-function theme_option_parent($parent){
-  $parent ='';
-  return $parent;
-}
-add_filter( 'ot_theme_options_parent_slug', 'theme_option_parent', 20 );
-
- /**
-  * Required: include OptionTree.
-  **/
- require( trailingslashit( get_template_directory() ) . 'option-tree/ot-loader.php' );
-require( trailingslashit( get_template_directory() ) . 'inc/meta-boxes.php' );
-require( trailingslashit( get_template_directory() ) . 'inc/theme-options.php' );
-
 show_admin_bar(false);
 
 function bee_setup() {
@@ -250,4 +230,14 @@ function filter_menu_li(){
 }
 function filter_menu_id(){
     return;
+}
+
+/**
+* Custom background for section
+**/
+function bee_thumbnail($field, $cat = null){
+    if( get_field($field, $cat) ){
+       return ' style="background: url(' . get_field($field, $cat) . '); "';
+    }
+    return null;
 }

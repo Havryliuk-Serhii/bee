@@ -24,34 +24,30 @@
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Exterior Design</a></li>
 		            </ul>
             	</div>
-          	</div>
+          	</div>  -->
           	<div class="col-md-5">
             	<div class="ftco-footer-widget mb-5">
-              		<h2 class="ftco-heading-2">Recent Blog</h2>
+              		<h2 class="ftco-heading-2"<?php esc_html_e('Recent Blog', 'bee' ); ?>></h2>
+                  <?php $recent_post = new WP_Query( 'posts_per_page=2' ); ?>
+                  <?php while ($recent_post -> have_posts()) : $recent_post -> the_post(); ?>
               		<div class="block-21 mb-4 d-flex">
-                		<a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                		<a class="blog-img mr-4" <?php echo bee_thumbnail('post_recent'); ?>></a>
                 		<div class="text">
-                  			<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  			<h3 class="heading"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
                   			<div class="meta">
-                    			<div><a href="#"><span class="icon-calendar"></span> Feb. 07, 2018</a></div>
-                    			<div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    			<div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                    			<div><a href="#"><span class="icon-calendar"></span> <?php the_time('M,j,Y'); ?></a></div>
+                    			<div><a href="#"><span class="icon-person"></span><?php the_author(); ?></a></div>
+                    			<div><a href="#"><span class="icon-chat"></span> <?php comments_number('0', '1', '%')?></a></div>
                   			</div>
                 		</div>
               		</div>
-              		<div class="block-21 mb-5 d-flex">
-                		<a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                		<div class="text">
-                  			<h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  			<div class="meta">
-                    			<div><a href="#"><span class="icon-calendar"></span> Feb. 07, 2018</a></div>
-                    			<div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    			<div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  			</div>
-                		</div>
-              		</div>
+                  <?php
+                  endwhile;
+                  wp_reset_postdata();
+                  ?>
             	</div>
           	</div>
+            <!--
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5">
             		<h2 class="ftco-heading-2">Newsletter</h2>
