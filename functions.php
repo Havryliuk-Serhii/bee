@@ -233,11 +233,46 @@ function filter_menu_id(){
 }
 
 /**
-* Custom background for section
-**/
+ * Custom thumbnail
+ **/
 function bee_thumbnail($field, $cat = null){
     if( get_field($field, $cat) ){
        return ' style="background: url(' . get_field($field, $cat) . '); "';
     }
     return null;
+}
+
+/**
+ * Custom Slider
+ **/
+add_action('init', 'my_custom_slider');
+function my_custom_slider(){
+	register_post_type('slider', array(
+		'labels'             => array(
+			'name'               => 'Slider',
+			'singular_name'      => 'Slider',
+			'add_new'            => 'Add new ',
+			'add_new_item'       => 'Add new slider',
+			'edit_item'          => 'Edit slider',
+			'new_item'           => 'New slider',
+			'view_item'          => 'View slider',
+			'search_items'       => 'Search slider',
+			'not_found'          =>  'Slider not found',
+			'not_found_in_trash' => 'Slider not found in trash',
+			'parent_item_colon'  => '',
+			'menu_name'          => 'Slider',
+		  ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+    'menu_icon'          => 'dashicons-images-alt',
+    'menu_position'      => 9,
+		'supports'           => array('title','editor')
+	) );
 }

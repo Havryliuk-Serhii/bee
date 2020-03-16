@@ -1,30 +1,32 @@
 <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
-    	<!--
+
         <div class="row mb-5">
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5">
-              		<h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span>Bee.</h2>
-              		<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              		<h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span><?php bloginfo( 'name' ); ?></h2>
+              		<!--
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               		<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              		</ul>
+              		</ul>-->
             	</div>
           	</div>
+
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5 ml-md-4">
-              		<h2 class="ftco-heading-2">Services</h2>
+              	<!--<h2 class="ftco-heading-2">Services</h2>
 		            <ul class="list-unstyled">
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Construction</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Renovation</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Painting</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Interior Design</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Exterior Design</a></li>
-		            </ul>
+		            </ul>-->
             	</div>
-          	</div>  -->
+          	</div>
           	<div class="col-md-5">
             	<div class="ftco-footer-widget mb-5">
               		<h2 class="ftco-heading-2"<?php esc_html_e('Recent Blog', 'bee' ); ?>></h2>
@@ -47,20 +49,20 @@
                   ?>
             	</div>
           	</div>
-            <!--
+
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5">
-            		<h2 class="ftco-heading-2">Newsletter</h2>
+            		<!--<h2 class="ftco-heading-2">Newsletter</h2>
               		<form action="#" class="subscribe-form">
                 		<div class="form-group">
                   			<input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
                   			<input type="submit" value="Subscribe" class="form-control submit px-3">
                 		</div>
-              		</form>
+              		</form>  -->
             	</div>
           	</div>
         </div>
-    -->
+
         <div class="row">
           	<div class="col-md-12 text-center">
             	<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
