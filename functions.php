@@ -6,6 +6,7 @@ function bee_setup() {
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'bee' ),
 			'services' => esc_html__( 'Services Menu', 'bee' ),
+
 			) );
 
 		add_theme_support( 'html5', array(
@@ -122,7 +123,6 @@ function display_email(){
 echo "<input type='text' class='regular-text' name='my_email' value='" . esc_attr(get_option('my_email')) . "'>";
 }
 
-
 function my_phone_options(){
 	add_settings_field(
 	'phone',
@@ -207,7 +207,17 @@ class Bootstrap_Menu_Walker extends Walker_Nav_Menu {
 	  $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 }
-
+/**
+ * Delete menu item class
+ **/
+add_filter('nav_menu_item_id', 'filter_menu_id');
+add_filter( 'nav_menu_css_class', 'filter_menu_li' );
+function filter_menu_li(){
+    return array('');
+}
+function filter_menu_id(){
+    return;
+}
 /**
  * Social icons link
  **/
@@ -221,23 +231,11 @@ register_sidebar(array(
 );
 
 /**
- * Delete menu item class
- **/
-add_filter('nav_menu_item_id', 'filter_menu_id');
-add_filter( 'nav_menu_css_class', 'filter_menu_li' );
-function filter_menu_li(){
-    return array('');
-}
-function filter_menu_id(){
-    return;
-}
-
-/**
  * Custom thumbnail
  **/
 function bee_thumbnail($field, $cat = null){
     if( get_field($field, $cat) ){
-       return ' style="background: url(' . get_field($field, $cat) . '); "';
+       return ' style="background-image: url(' . get_field($field, $cat) . '); "';
     }
     return null;
 }
@@ -275,4 +273,40 @@ function my_custom_slider(){
     'menu_position'      => 9,
 		'supports'           => array('title','editor')
 	) );
+}
+
+/**
+ * Resent post widget
+**/
+add_image_size( 'bee-recent-thumbnails', 80, 80, true );
+function bee_recent_posts() {
+    $bee_posts = new WP_Query();
+    $bee_posts->query('showposts=2');
+        while ($bee_posts->have_posts()) : $bee_posts->the_post(); ?>
+				<div class="block-21 mb-4 d-flex">
+			    <a class="blog-img mr-4" <?php echo bee_thumbnail('bee-recent-thumbnails'); ?>></a>
+			    <div class="text">
+			      <h3 class="heading"><a href="<?php esc_url(the_permalink()); ?>"><?php esc_html(the_title()); ?></a></h3>
+			      <div class="meta">
+			      	<div><a href="<?php esc_url(the_permalink()); ?>"><span class="icon-calendar"></span><?php the_time('M, j, Y'); ?></a></div>
+			        <div><a href="<?php esc_url(the_permalink()); ?>"><span class="icon-person"></span><?php the_author(); ?></a></div>
+			        <div><a href="<?php esc_url(the_permalink()); ?>"><span class="icon-chat"></span> <?php comments_number('0', '1', '%')?></a></div>
+			      </div>
+			   </div>
+			 	</div>
+
+
+			<li class="d-flex flex-row">
+                <a href="<?php esc_url(the_permalink()); ?>">
+                    <?php the_post_thumbnail('bee-recent-thumbnails'); ?>
+                </a>
+                <div class="recent-content d-flex flex-column">
+                	<a href="">
+
+                   </a>
+                	<span class="date"><?php the_time('M, j, Y'); ?></span>
+				</div>
+            </li>
+        <?php endwhile;
+    wp_reset_postdata();
 }

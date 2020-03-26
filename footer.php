@@ -5,9 +5,8 @@
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5">
               		<h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span><?php bloginfo( 'name' ); ?></h2>
-              		<!--
-                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              		<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                  <p><?php the_field('footer_descr'); ?></p>
+              	<!--	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
 		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
 		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
@@ -17,8 +16,8 @@
 
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5 ml-md-4">
-              	<!--<h2 class="ftco-heading-2">Services</h2>
-		            <ul class="list-unstyled">
+              	<h2 class="ftco-heading-2"><?php esc_html_e('Services','bee' ); ?></h2>
+		            <!--<ul class="list-unstyled">
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Construction</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Renovation</a></li>
 		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Painting</a></li>
@@ -29,31 +28,15 @@
           	</div>
           	<div class="col-md-5">
             	<div class="ftco-footer-widget mb-5">
-              		<h2 class="ftco-heading-2"<?php esc_html_e('Recent Blog', 'bee' ); ?>></h2>
-                  <?php $recent_post = new WP_Query( 'posts_per_page=2' ); ?>
-                  <?php while ($recent_post -> have_posts()) : $recent_post -> the_post(); ?>
-              		<div class="block-21 mb-4 d-flex">
-                		<a class="blog-img mr-4" <?php echo bee_thumbnail('post_recent'); ?>></a>
-                		<div class="text">
-                  			<h3 class="heading"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-                  			<div class="meta">
-                    			<div><a href="#"><span class="icon-calendar"></span> <?php the_time('M,j,Y'); ?></a></div>
-                    			<div><a href="#"><span class="icon-person"></span><?php the_author(); ?></a></div>
-                    			<div><a href="#"><span class="icon-chat"></span> <?php comments_number('0', '1', '%')?></a></div>
-                  			</div>
-                		</div>
-              		</div>
-                  <?php
-                  endwhile;
-                  wp_reset_postdata();
-                  ?>
+              	<h2 class="ftco-heading-2"><?php esc_html_e('Recent Blog', 'bee' ); ?></h2>
+                <?php echo bee_recent_posts(); ?>
             	</div>
           	</div>
 
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5">
-            		<!--<h2 class="ftco-heading-2">Newsletter</h2>
-              		<form action="#" class="subscribe-form">
+            		<h2 class="ftco-heading-2"><?php esc_html_e('Newsletter','bee' ); ?></h2>
+              		<!--<form action="#" class="subscribe-form">
                 		<div class="form-group">
                   			<input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
                   			<input type="submit" value="Subscribe" class="form-control submit px-3">
