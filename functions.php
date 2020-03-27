@@ -218,17 +218,6 @@ function filter_menu_li(){
 function filter_menu_id(){
     return;
 }
-/**
- * Social icons link
- **/
-register_sidebar(array(
-	'name' => 'Social icons link',
-	'id' => 'social_icons',
-	'description' => 'Use the Text widget to add HTML code',
-	'before_widget' => '',
-	'after_widget' => ''
-)
-);
 
 /**
  * Custom thumbnail
@@ -331,6 +320,24 @@ function in_options(){
 add_action('admin_init', 'in_options');
 function display_in(){
 	echo "<input type='text' class='regular-text' name='in-link' value='" . esc_attr(get_option('in-link')) . "'>";
+}
+//Google
+function gp_options(){
+		add_settings_field(
+		'google',
+		'Google link',
+		'display_gp',
+		'general'
+	);
+
+	register_setting(
+		'general',
+		'gp-link'
+	);
+}
+add_action('admin_init', 'gp_options');
+function display_gp(){
+	echo "<input type='text' class='regular-text' name='gp-link' value='" . esc_attr(get_option('gp-link')) . "'>";
 }
 /**
  * Resent post widget
