@@ -17,15 +17,24 @@
           	<div class="col-md">
             	<div class="ftco-footer-widget mb-5 ml-md-4">
               	<h2 class="ftco-heading-2"><?php esc_html_e('Services','bee' ); ?></h2>
-		            <!--<ul class="list-unstyled">
-		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Construction</a></li>
-		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Renovation</a></li>
-		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Painting</a></li>
-		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Interior Design</a></li>
-		                <li><a href="#"><span class="ion-ios-arrow-round-forward mr-2"></span>Exterior Design</a></li>
-		            </ul>-->
+                <?php wp_nav_menu( [
+                        	'theme_location'  => 'services',
+                        	'menu'            => '',
+                        	'container'       => false,
+                        	'echo'            => true,
+                        	'fallback_cb'     => '',
+                        	'before'          => '',
+                        	'after'           => '',
+                        	'link_before'     => '<span class="ion-ios-arrow-round-forward mr-2">',
+                        	'link_after'      => '</span>',
+                        	'items_wrap'      => '<ul id="%1$s" class="list-unstyled">%3$s</ul>',
+                        	'depth'           => 0,
+                        	'walker'          => '',
+                        ] );
+                ?>
             	</div>
           	</div>
+            
           	<div class="col-md-5">
             	<div class="ftco-footer-widget mb-5">
               	<h2 class="ftco-heading-2"><?php esc_html_e('Recent Blog', 'bee' ); ?></h2>
