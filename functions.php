@@ -233,9 +233,9 @@ register_sidebar(array(
 /**
  * Custom thumbnail
  **/
-function bee_thumbnail($field, $cat = null){
-    if( get_field($field, $cat) ){
-       return ' style="background-image: url(' . get_field($field, $cat) . '); "';
+function bee_thumbnail(){
+    if( get_the_post_thumbnail_url($post = null, 'thumbnail') ){
+       return ' style="background-image: url(' . get_the_post_thumbnail_url($post, 'thumbnail') . '); "';
     }
     return null;
 }
@@ -271,7 +271,7 @@ function my_custom_slider(){
 		'hierarchical'       => false,
     'menu_icon'          => 'dashicons-images-alt',
     'menu_position'      => 9,
-		'supports'           => array('title','editor')
+		'supports'           => array('title','editor', 'thumbnail', 'custom-fields')
 	) );
 }
 
@@ -294,19 +294,6 @@ function bee_recent_posts() {
 			      </div>
 			   </div>
 			 	</div>
-
-
-			<li class="d-flex flex-row">
-                <a href="<?php esc_url(the_permalink()); ?>">
-                    <?php the_post_thumbnail('bee-recent-thumbnails'); ?>
-                </a>
-                <div class="recent-content d-flex flex-column">
-                	<a href="">
-
-                   </a>
-                	<span class="date"><?php the_time('M, j, Y'); ?></span>
-				</div>
-            </li>
         <?php endwhile;
     wp_reset_postdata();
 }

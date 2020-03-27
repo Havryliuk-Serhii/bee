@@ -8,7 +8,7 @@
 <?php $slider = new WP_Query(array('post_type' => 'slider', 'posts_per_page'=> 2,'order' => 'ASC')) ?>
 <section class="home-slider owl-carousel">
   <?php if ( $slider->have_posts() ) : while ( $slider->have_posts() ) : $slider->the_post(); ?>
-      <div class="slider-item" <?php echo bee_thumbnail('post_recent'); ?> data-stellar-background-ratio="0.5">
+      <div class="slider-item" <?php echo bee_thumbnail(); ?> data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
