@@ -6,11 +6,11 @@
             	<div class="ftco-footer-widget mb-5">
               		<h2 class="ftco-heading-2 logo"><span class="flaticon-bee"></span><?php bloginfo( 'name' ); ?></h2>
                   <p><?php the_field('footer_descr'); ?></p>
-              	<!--	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
-		                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-		                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-              		</ul>-->
+              	<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+		                <li class="ftco-animate"><a href="<?php echo get_option('tw-link'); ?>"><span class="icon-twitter"></span></a></li>
+		                <li class="ftco-animate"><a href="<?php echo get_option('fb-link'); ?>"><span class="icon-facebook"></span></a></li>
+		                <li class="ftco-animate"><a href="<?php echo get_option('in-link'); ?>"><span class="icon-instagram"></span></a></li>
+              		</ul>
             	</div>
           	</div>
 

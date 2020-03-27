@@ -276,6 +276,63 @@ function my_custom_slider(){
 }
 
 /**
+* Social icon links
+**/
+//Twitter
+function tw_options(){
+		add_settings_field(
+		'twitter',
+		'Twitter link',
+		'display_tw',
+		'general'
+	);
+
+	register_setting(
+		'general',
+		'tw-link'
+	);
+}
+add_action('admin_init', 'tw_options');
+function display_tw(){
+	echo "<input type='text' class='regular-text' name='tw-link' value='" . esc_attr(get_option('tw-link')) . "'>";
+}
+//Facebook
+function fb_options(){
+		add_settings_field(
+		'facebook',
+		'Fasebook link',
+		'display_fb',
+		'general'
+	);
+
+	register_setting(
+		'general',
+		'fb-link'
+	);
+}
+add_action('admin_init', 'fb_options');
+function display_fb(){
+	echo "<input type='text' class='regular-text' name='fb-link' value='" . esc_attr(get_option('fb-link')) . "'>";
+}
+//Instagram
+function in_options(){
+		add_settings_field(
+		'instagram',
+		'Instagram link',
+		'display_in',
+		'general'
+	);
+
+	register_setting(
+		'general',
+		'in-link'
+	);
+}
+add_action('admin_init', 'in_options');
+function display_in(){
+	echo "<input type='text' class='regular-text' name='in-link' value='" . esc_attr(get_option('in-link')) . "'>";
+}
+/**
  * Resent post widget
 **/
 add_image_size( 'bee-recent-thumbnails', 80, 80, true );
