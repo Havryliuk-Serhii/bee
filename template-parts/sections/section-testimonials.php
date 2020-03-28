@@ -54,16 +54,11 @@
              <p><?php the_field('test_descr'); ?></p>
            </div>
            <?php
-           $quotes = get_posts( array(
-               'post_type' => 'slider',
-               'category'    => 10,
-               'numberposts' => 2,
-           ) );
-           if($quotes):
-           ?>
-           <div class="carousel-testimony owl-carousel">
-             <?php $i = 0; foreach($quotes as $post): ?>
-             <div class="item <?php if(!$i) echo 'active' ?>">
+              	 $testimonial_slider = new WP_Query( array('post_type' => 'testimonial_slider','posts_per_page' => 3, 'order' => 'ASC') ); ?>
+          <div class="carousel-testimony owl-carousel">
+             <?php if ($testimonial_slider->have_posts()) :
+                           while ($testimonial_slider->have_posts()) : $testimonial_slider->the_post(); ?>
+             <div class="item">
                <div class="testimony-wrap">
                  <div class="text bg-light p-4">
                    <span class="quote d-flex align-items-center justify-content-center">
@@ -77,9 +72,10 @@
                  </div>
                </div>
              </div>
-             <?php $i++; endforeach; ?>
+           <?php endwhile;  endif;
+           								wp_reset_query(); ?>
            </div>
-            <?php endif; ?>
+
          </div>
        </div>
      </div>

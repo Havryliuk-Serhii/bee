@@ -230,10 +230,10 @@ function bee_thumbnail(){
 }
 
 /**
- * Custom Slider
+ * Hero Slider
  **/
-add_action('init', 'my_custom_slider');
-function my_custom_slider(){
+add_action('init', 'hero_slider');
+function hero_slider(){
 	register_post_type('slider', array(
 		'labels'             => array(
 			'name'               => 'Slider',
@@ -247,7 +247,7 @@ function my_custom_slider(){
 			'not_found'          =>  'Slider not found',
 			'not_found_in_trash' => 'Slider not found in trash',
 			'parent_item_colon'  => '',
-			'menu_name'          => 'Slider',
+			'menu_name'          => 'Hero slider',
 		  ),
 		'public'             => true,
 		'publicly_queryable' => true,
@@ -259,9 +259,46 @@ function my_custom_slider(){
 		'has_archive'        => true,
 		'hierarchical'       => false,
     'menu_icon'          => 'dashicons-images-alt',
-    'menu_position'      => 9,
+    'menu_position'      => 8,
 		'supports'           => array('title','editor', 'thumbnail', 'custom-fields')
 	) );
+}
+/**
+* Testimonials slider
+**/
+add_action('init', 'testimonial_posts');
+function testimonial_posts(){
+	$labels = array(
+		'name' => 'Testimonials',
+		'singular_name' => 'Testimonial',
+		'add_new' => 'Add new',
+		'add_new_item' => 'Add new testimonial',
+		'edit_item' => 'Edit testimonial',
+		'new_item' => 'New testimonial',
+		'view_item' => 'View testimonial',
+		'search_items' => 'Search testimonial',
+		'not_found' =>  'Testimonial not found',
+		'not_found_in_trash' => 'Testimonial not found in trash',
+		'parent_item_colon' => '',
+		'menu_name' => 'Testimonials'
+	);
+	$args = array(
+		'labels' => __( $labels, 'bee' ),
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'has_archive' => true,
+		'hierarchical' => false,
+		'menu_position' => 9,
+		'menu_icon' => 'dashicons-id' ,
+		'supports' => array('editor', 'author', 'thumbnail'),
+		'taxonomies' => array( 'category' ),
+	);
+	register_post_type('testimonial_slider', $args);
 }
 
 /**
