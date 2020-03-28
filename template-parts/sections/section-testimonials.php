@@ -19,8 +19,8 @@
                  <span class="flaticon-engineer"></span>
                </div>
                <div class="text">
-                 <h3>Expert &amp; Professional</h3>
-                 <p>Separated they live in. A small river named Duden flows</p>
+                 <h3><?php the_field('service_title_1'); ?></h3>
+                 <p><?php the_field('service_content_1') ?></p>
                </div>
              </div>
 
@@ -29,8 +29,8 @@
                  <span class="flaticon-engineer-1"></span>
                </div>
                <div class="text">
-                 <h3>High Quality Work</h3>
-                 <p>Separated they live in. A small river named Duden flows</p>
+                 <h3><?php the_field('service_title_2'); ?></h3>
+                 <p><?php the_field('service_content_2') ?></p>
                </div>
              </div>
              <div class="services-2 p-4 d-flex ftco-animate">
@@ -38,11 +38,10 @@
                  <span class="flaticon-engineer-2"></span>
                </div>
                <div class="text">
-                 <h3>24/7 Help Support</h3>
-                 <p>Separated they live in. A small river named Duden flows</p>
+                 <h3><?php the_field('service_title_3'); ?></h3>
+                 <p><?php the_field('service_content_3') ?></p>
                </div>
              </div>
-
            </div>
          </div>
 
@@ -75,7 +74,6 @@
            <?php endwhile;  endif;
            								wp_reset_query(); ?>
            </div>
-
          </div>
        </div>
      </div>
