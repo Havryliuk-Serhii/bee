@@ -223,8 +223,8 @@ function filter_menu_id(){
  * Custom thumbnail
  **/
 function bee_thumbnail(){
-    if( get_the_post_thumbnail_url($post = null, 'thumbnail') ){
-       return ' style="background-image: url(' . get_the_post_thumbnail_url($post, 'thumbnail') . '); "';
+    if( get_the_post_thumbnail_url($post = null, 'full') ){
+       return ' style="background-image: url(' . get_the_post_thumbnail_url($post, 'full') . '); "';
     }
     return null;
 }
