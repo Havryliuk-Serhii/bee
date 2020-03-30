@@ -25,7 +25,7 @@
 	    				<span><?php the_field('project_spec'); ?></span>
 	    				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 	    			</div>
-	    			<a href="images/work-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    			<a href="<?php echo get_the_post_thumbnail_url($post, 'full') ?>" class="icon image-popup d-flex justify-content-center align-items-center">
 	    				<span class="icon-expand"></span>
 	    			</a>
     			</div>
