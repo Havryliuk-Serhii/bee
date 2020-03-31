@@ -264,7 +264,16 @@ function hero_slider(){
 	) );
 }
 /**
- *	default WordPress custom field metabox
+*  add a special class to the excerpt's <p> element
+**/
+
+add_filter( "the_excerpt", "add_class_to_excerpt" );
+
+function add_class_to_excerpt( $excerpt ) {
+    return str_replace('<p', '<p class="mb-5"', $excerpt);
+}
+/**
+ *	Default WordPress custom field
  **/
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
