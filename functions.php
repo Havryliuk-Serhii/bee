@@ -264,8 +264,13 @@ function hero_slider(){
 	) );
 }
 /**
-* Testimonials slider
-**/
+ *	default WordPress custom field metabox
+ **/
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+/**
+ * Testimonials slider
+ **/
 add_action('init', 'testimonial_posts');
 function testimonial_posts(){
 	$labels = array(
