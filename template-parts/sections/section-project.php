@@ -37,7 +37,7 @@
     	</div>
     </div>
 </section>
-<section class="ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+<section class="ftco-counter img" id="section-counter" style="background-image: url(<?php echo get_theme_file_uri('images/bg_3.jpg' ); ?>);" data-stellar-background-ratio="0.5">
 	<div class="container">
 		<div class="row">
           	<div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
