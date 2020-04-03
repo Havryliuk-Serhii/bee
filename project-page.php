@@ -3,155 +3,38 @@
   * Template Name: Page Project
  */
 get_header(); ?>
-    <section class="ftco-section ftco-no-pt ftco-no-pb">
-			<div class="container-fluid p-0">
-    		<div class="row no-gutters">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-1.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-2.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-3.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-4.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-5.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-6.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Resedencial</span>
-	    					<h3><a href="project.html">Rose Villa House</a></h3>
-	    				</div>
-	    				<a href="images/work-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-7.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-7.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-8.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-8.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-9.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-9.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-10.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Resedencial</span>
-	    					<h3><a href="project.html">Rose Villa House</a></h3>
-	    				</div>
-	    				<a href="images/work-10.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-11.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-11.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="project">
-	    				<img src="images/work-12.jpg" class="img-fluid" alt="Colorlib Template">
-	    				<div class="text">
-	    					<span>Commercial</span>
-	    					<h3><a href="project.html">San Francisco Tower</a></h3>
-	    				</div>
-	    				<a href="images/work-12.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
-	    					<span class="icon-expand"></span>
-	    				</a>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-		</section>
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters justify-content-center mb-5 pb-2">
+            <div class="col-md-6 text-center heading-section ftco-animate">
+                <span class="subheading"><?php esc_html_e('Projects','bee' ); ?></span>
+                <h2 class="mb-4"><?php esc_html_e('Featured Projects','bee' ); ?></h2>
+                <p><?php the_field('project_descr'); ?></p>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <?php
+                $project_gallery = new WP_Query(array('category_name' => 'projects','order' => 'ASC', 'posts_per_page'=>12));
+                if ($project_gallery->have_posts() ) :
+                while ($project_gallery->have_posts() ) : $project_gallery->the_post(); ?>
+            <div class="col-md-6 col-lg-3 ftco-animate">
+                <div class="project">
+                    <?php the_post_thumbnail( $size = 'post-thumbnail', ['class' => 'img-fluid', 'title' => '.the_title().'] ) ?>
+                    <div class="text">
+                        <span><?php the_field('project_spec'); ?></span>
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    </div>
+                    <a href="<?php echo get_the_post_thumbnail_url($post, 'full') ?>" class="icon image-popup d-flex justify-content-center align-items-center">
+                        <span class="icon-expand"></span>
+                    </a>
+                </div>
+            </div>
+        <?php endwhile;
+                endif;
+            wp_reset_query();
+        ?>
+        </div>
+    </div>
+</section>
 
 <?php get_footer(); ?>
