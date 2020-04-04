@@ -3,7 +3,7 @@
  * Template Name: Page About
  */
 get_header(); ?>
-<?php  get_template_part( 'template-parts/sections/section-counter');?>
+<?php  get_template_part( 'template-parts/section-counter');?>
     <?php
         $about_post = new WP_Query(array('category_name' => 'about'));
         if ($about_post->have_posts() ) :
@@ -30,9 +30,9 @@ get_header(); ?>
         wp_reset_query();
     ?>
         <?php
-        get_template_part( 'template-parts/sections/section-testimonials');
-        get_template_part( 'template-parts/sections/section-intro');
-        get_template_part( 'template-parts/sections/section-team');
+        get_template_part( 'template-parts/section-testimonials');
+        get_template_part( 'template-parts/section-intro');
+        get_template_part( 'template-parts/section-team');
 
         ?>
 <?php get_footer();
