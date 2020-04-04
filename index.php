@@ -11,7 +11,7 @@ get_header();
 		<div class="row">
 			<?php
 	        	if (have_posts() ) : while (have_posts() ) : the_post(); ?>
-	  		<div class="col-md-4 ftco-animate">
+	  		<divid="post-<?php the_ID(); ?>" <?php post_class('col-md-4 ftco-animate'); ?>>
 				<div class="blog-entry">
 		  			<a href="<?php the_permalink() ?>" class="block-20" <?php echo bee_thumbnail(); ?>>
 						<div class="meta-date text-center p-2">
