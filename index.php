@@ -11,7 +11,7 @@ get_header();
 		<div class="row">
 			<?php
 	        	if (have_posts() ) : while (have_posts() ) : the_post(); ?>
-	  		<divid="post-<?php the_ID(); ?>" <?php post_class('col-md-4 ftco-animate'); ?>>
+	  		<div id="post-<?php the_ID(); ?>" <?php post_class('col-md-4 ftco-animate'); ?>>
 				<div class="blog-entry">
 		  			<a href="<?php the_permalink() ?>" class="block-20" <?php echo bee_thumbnail(); ?>>
 						<div class="meta-date text-center p-2">
@@ -32,12 +32,12 @@ get_header();
 			            </div>
 		  			</div>
 				</div>
+
 	  		</div>
-  		<?php endwhile;	else : ?>
+		<?php endwhile;	else : ?>
 				<h6 class="text-center"><?php esc_html_e('No posts published','bee' ); ?></h6>
 		<?php endif; ?>
 		</div>
-
 		<div class="row no-gutters my-5">
 		  	<div class="col text-center">
 				<div class="block-27">
@@ -45,7 +45,6 @@ get_header();
 				</div>
 		  	</div>
 		</div>
-
 	</div>
 </section>
 <?php

@@ -68,4 +68,4 @@ $title_request = get_post_meta(8, 'title_request', true);
 	    	</div>
 	  	</nav>
     <!-- END nav -->
-<?php get_template_part( 'template-parts/sections/section-slider'); ?>
+<?php get_template_part( 'template-parts/section-slider'); ?>
