@@ -290,6 +290,13 @@ function add_class_to_excerpt( $excerpt ) {
     return str_replace('<p', '<p class="mb-5"', $excerpt);
 }
 /**
+*  Delete square brackets
+**/
+add_filter('excerpt_more', 'my_func');
+function my_func($more) {
+	return '';
+}
+/**
  *	Default WordPress custom field
  **/
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
@@ -405,6 +412,10 @@ function bee_pagination( $args = array() ) {
         echo $args['before_output'] . $echo . $args['after_output'];
 }
 /**
+ * Author widget
+ **/
+
+/**
 * Social icon links
 **/
 //Twitter
@@ -461,24 +472,7 @@ add_action('admin_init', 'in_options');
 function display_in(){
 	echo "<input type='text' class='regular-text' name='in-link' value='" . esc_attr(get_option('in-link')) . "'>";
 }
-//Google
-function gp_options(){
-		add_settings_field(
-		'google',
-		'Google link',
-		'display_gp',
-		'general'
-	);
 
-	register_setting(
-		'general',
-		'gp-link'
-	);
-}
-add_action('admin_init', 'gp_options');
-function display_gp(){
-	echo "<input type='text' class='regular-text' name='gp-link' value='" . esc_attr(get_option('gp-link')) . "'>";
-}
 /**
  * Resent post widget
 **/
