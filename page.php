@@ -1,5 +1,5 @@
 <?php
-		get_header();
+	get_header();
 ?>
 <section class="ftco-section bg-light">
 	<div class="container">
@@ -24,7 +24,5 @@
 		</div>
 	</div>
 </section>
-
-
 <?php
-get_footer();
+	get_footer();

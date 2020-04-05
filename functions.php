@@ -228,7 +228,24 @@ function bee_thumbnail(){
     }
     return null;
 }
+function bee_post_thumbnail() {
+	if ( is_singular() ) :
+			the_post_thumbnail( $size = 'post-thumbnail', $attr = array('class' =>'img-fluid') );
+		else : ?>
 
+		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php
+			the_post_thumbnail( 'post-thumbnail', array(
+				'alt' => the_title_attribute( array(
+					'echo' => false,
+				) ),
+			) );
+			?>
+		</a>
+
+		<?php
+		endif;
+}
 /**
  * Hero Slider
  **/
@@ -258,8 +275,8 @@ function hero_slider(){
 		'capability_type'    => 'post',
 		'has_archive'        => true,
 		'hierarchical'       => false,
-    'menu_icon'          => 'dashicons-images-alt',
-    'menu_position'      => 8,
+    	'menu_icon'          => 'dashicons-images-alt',
+    	'menu_position'      => 8,
 		'supports'           => array('title','editor', 'thumbnail', 'custom-fields')
 	) );
 }
