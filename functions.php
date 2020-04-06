@@ -412,8 +412,59 @@ function bee_pagination( $args = array() ) {
         echo $args['before_output'] . $echo . $args['after_output'];
 }
 /**
+ * Author section
+ **/
+add_action('init', 'author_section');
+function author_section(){
+ 	register_post_type('author_sec', array(
+ 		'labels'             => array(
+ 			'name'               => 'Author',
+ 			'singular_name'      => 'Author',
+ 			'add_new'            => 'Add new ',
+ 			'add_new_item'       => 'Add new author',
+ 			'edit_item'          => 'Edit author',
+ 			'new_item'           => 'New author',
+ 			'view_item'          => 'View author',
+ 			'search_items'       => 'Search author',
+ 			'not_found'          =>  'Author not found',
+ 			'not_found_in_trash' => 'Author not found in trash',
+ 			'parent_item_colon'  => '',
+ 			'menu_name'          => 'Author section',
+ 		),
+ 		'public'             => true,
+ 		'publicly_queryable' => true,
+ 		'show_ui'            => true,
+ 		'show_in_menu'       => true,
+ 		'query_var'          => true,
+ 		'rewrite'            => true,
+ 		'capability_type'    => 'post',
+ 		'has_archive'        => true,
+ 		'hierarchical'       => false,
+     	'menu_icon'          => 'dashicons-buddicons-buddypress-logo',
+     	'menu_position'      => 10,
+ 		'supports'           => array('title','editor', 'thumbnail')
+ 	) );
+}
+/**
  * Author widget
  **/
+function bee_author(){
+	$author = new WP_Query(array('post_type' => 'author_sec', 'posts_per_page'=> 1));
+
+	if ( $author->have_posts() ) : while ( $author->have_posts() ) : $author->the_post(); ?>
+		<div id="post-<?php echo get_post_meta( get_the_ID(), 'post_author', true); ?>" <?php post_class('about-author d-flex p-4 bg-light'); ?>>
+	      	<div class="bio mr-5">
+				<?php the_post_thumbnail($size = 'post-thumbnail', $attr = array('class' =>'img-fluid mb-4')); ?>
+	        </div>
+	        <div class="desc">
+	            <h3><?php the_title(); ?></h3>
+	            <?php the_content(); ?>
+	        </div>
+	    </div>
+		<?php endwhile;
+          wp_reset_postdata();
+    endif;
+}
 
 /**
 * Social icon links
@@ -472,7 +523,6 @@ add_action('admin_init', 'in_options');
 function display_in(){
 	echo "<input type='text' class='regular-text' name='in-link' value='" . esc_attr(get_option('in-link')) . "'>";
 }
-
 /**
  * Resent post widget
 **/
