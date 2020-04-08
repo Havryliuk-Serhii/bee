@@ -465,6 +465,26 @@ function bee_author(){
           wp_reset_postdata();
     endif;
 }
+/**
+*  Changing comment form fields
+*/
+add_filter('comment_form_fields', 'bee_reorder_comment_fields' );
+function bee_reorder_comment_fields( $fields ){
+	
+	$new_fields = array();
+
+	$myorder = array('author','email','website','comment');
+	foreach( $myorder as $key ){
+		$new_fields[ $key ] = $fields[ $key ];
+		unset( $fields[ $key ] );
+	}
+
+	if( $fields )
+		foreach( $fields as $key => $val )
+			$new_fields[ $key ] = $val;
+
+	return $new_fields;
+}
 
 /**
 * Social icon links
@@ -477,7 +497,6 @@ function tw_options(){
 		'display_tw',
 		'general'
 	);
-
 	register_setting(
 		'general',
 		'tw-link'
@@ -495,7 +514,6 @@ function fb_options(){
 		'display_fb',
 		'general'
 	);
-
 	register_setting(
 		'general',
 		'fb-link'
@@ -513,7 +531,6 @@ function in_options(){
 		'display_in',
 		'general'
 	);
-
 	register_setting(
 		'general',
 		'in-link'

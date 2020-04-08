@@ -19,6 +19,9 @@
                     </div>
                 </div>
                 <?php echo bee_author(); ?>
+                <?php if ( comments_open() || get_comments_number() ) :
+                        comments_template();
+                        endif; ?>
             </div>
             <?php endwhile; ?>
             <?php get_sidebar(); ?>
