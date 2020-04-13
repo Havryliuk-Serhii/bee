@@ -477,35 +477,32 @@ function bee_list_comment( $comment, $args, $depth ) {
 		$add_below = 'div-comment';
 	}
 	?>
-	<li class="media">
-		<div class="media-left">
-			<a href="<?php the_author_link(); ?>">
-				<?php
-						echo get_avatar( $comment, '64',  'mysterman', '', array('class'=>'media-img') );
-				?>
-			</a>
+<!--<li class="comment">
+      	<div class="vcard bio">
+            <img src="images/person_1.jpg" alt="Image placeholder">
+        </div>
+        <div class="comment-body">
+            <h3>John Doe</h3>
+            <div class="meta mb-2">February 07, 2019 at 2:21pm</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+            <p><a href="#" class="reply">Reply</a></p>
+        </div>
+    </li> -->
+	<li class="comment">
+		<div class="vcard bio">
+			<?php echo get_avatar( $comment, 50); ?>
 		</div>
-		<div class="media-body">
-			<?php
-				printf(
-					__( '<h4 class="media-heading">%s</h4>' ),
-					get_comment_author()
-				);
-			?>
-			<?php
-				printf(
-					__('<h4 class="media-heading"><span class="comment-date">%1$s</span></h4>'),
-					get_comment_date()
-				);
-			?>
+		<div class="comment-body">
+			<h3><?php echo get_comment_author(); ?></h3>
+			<div class="meta mb-2"><?php echo get_comment_date('F, d, Y  g:ia'); ?></div>
 			<?php if ( $comment->comment_approved == '0' ) { ?>
 			<em class="comment-awaiting-moderation">
-				<?php _e( 'Ваш комментарий ожидает модерации', bee ); ?>
+				<?php _e( 'Youre comment awaiting moderation', bee ); ?>
 			</em><br/>
 			<?php } ?>
 			<?php comment_text(); ?>
 
-			<div class="reply">
+			<p>
 				<?php
 				comment_reply_link(
 					array_merge(
@@ -517,7 +514,7 @@ function bee_list_comment( $comment, $args, $depth ) {
 						)
 					)
 				); ?>
-			</div>
+			</p>
 		</div>
 	</li>
 	<?php if ( 'div' != $args['style'] ) { ?>
