@@ -452,7 +452,7 @@ function bee_author(){
 	$author = new WP_Query(array('post_type' => 'author_sec', 'posts_per_page'=> 1));
 
 	if ( $author->have_posts() ) : while ( $author->have_posts() ) : $author->the_post(); ?>
-		<div id="post-<?php echo get_post_meta( get_the_ID(), 'post_author', true); ?>" <?php post_class('about-author d-flex p-4 bg-light'); ?>>
+		<div id="post-<?php echo get_the_ID(); ?>" <?php post_class('about-author d-flex p-4 bg-light'); ?>>
 	      	<div class="bio mr-5">
 				<?php the_post_thumbnail($size = 'post-thumbnail', $attr = array('class' =>'img-fluid mb-4')); ?>
 	        </div>
@@ -466,14 +466,73 @@ function bee_author(){
     endif;
 }
 /**
+*  Comment markup HTML output
+*/
+function bee_list_comment( $comment, $args, $depth ) {
+	if ( 'div' === $args['style'] ) {
+		$tag       = 'div';
+		$add_below = 'comment';
+	} else {
+		$tag       = 'li';
+		$add_below = 'div-comment';
+	}
+	?>
+	<li class="media">
+		<div class="media-left">
+			<a href="<?php the_author_link(); ?>">
+				<?php
+						echo get_avatar( $comment, '64',  'mysterman', '', array('class'=>'media-img') );
+				?>
+			</a>
+		</div>
+		<div class="media-body">
+			<?php
+				printf(
+					__( '<h4 class="media-heading">%s</h4>' ),
+					get_comment_author()
+				);
+			?>
+			<?php
+				printf(
+					__('<h4 class="media-heading"><span class="comment-date">%1$s</span></h4>'),
+					get_comment_date()
+				);
+			?>
+			<?php if ( $comment->comment_approved == '0' ) { ?>
+			<em class="comment-awaiting-moderation">
+				<?php _e( 'Ваш комментарий ожидает модерации', bee ); ?>
+			</em><br/>
+			<?php } ?>
+			<?php comment_text(); ?>
+
+			<div class="reply">
+				<?php
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'add_below' => $add_below,
+							'depth'     => $depth,
+							'max_depth' => $args['max_depth']
+						)
+					)
+				); ?>
+			</div>
+		</div>
+	</li>
+	<?php if ( 'div' != $args['style'] ) { ?>
+
+	<?php }
+}
+/**
 *  Changing comment form fields
 */
 add_filter('comment_form_fields', 'bee_reorder_comment_fields' );
 function bee_reorder_comment_fields( $fields ){
-	
+
 	$new_fields = array();
 
-	$myorder = array('author','email','website','comment');
+	$myorder = array('author','email','website','comment_field');
 	foreach( $myorder as $key ){
 		$new_fields[ $key ] = $fields[ $key ];
 		unset( $fields[ $key ] );
