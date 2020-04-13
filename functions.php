@@ -477,17 +477,6 @@ function bee_list_comment( $comment, $args, $depth ) {
 		$add_below = 'div-comment';
 	}
 	?>
-<!--<li class="comment">
-      	<div class="vcard bio">
-            <img src="images/person_1.jpg" alt="Image placeholder">
-        </div>
-        <div class="comment-body">
-            <h3>John Doe</h3>
-            <div class="meta mb-2">February 07, 2019 at 2:21pm</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-            <p><a href="#" class="reply">Reply</a></p>
-        </div>
-    </li> -->
 	<li class="comment">
 		<div class="vcard bio">
 			<?php echo get_avatar( $comment, 50); ?>
@@ -501,7 +490,6 @@ function bee_list_comment( $comment, $args, $depth ) {
 			</em><br/>
 			<?php } ?>
 			<?php comment_text(); ?>
-
 			<p>
 				<?php
 				comment_reply_link(
@@ -518,7 +506,6 @@ function bee_list_comment( $comment, $args, $depth ) {
 		</div>
 	</li>
 	<?php if ( 'div' != $args['style'] ) { ?>
-
 	<?php }
 }
 /**
