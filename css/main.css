@@ -9802,7 +9802,7 @@ textarea.form-control {
       border-bottom: none;
       padding-bottom: 0; }
     .categories li a, .sidelink li a {
-      display: block;
+      display: inline-block;
       color: #000000; }
       .categories li a span, .sidelink li a span {
         position: absolute;
