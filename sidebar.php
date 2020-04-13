@@ -16,7 +16,7 @@
   	<div class="sidebar-box ftco-animate">
 	  	<h3><?php esc_html_e('Category','bee' ); ?></h3>
 		<ul class="categories">
-
+            <?php wp_list_categories('show_count=1&title_li='); ?>
 		</ul>
   	</div>
   	<div class="sidebar-box ftco-animate">
