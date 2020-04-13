@@ -37,6 +37,8 @@
   	</div>
 	<div class="sidebar-box ftco-animate">
 		<h3><?php esc_html_e('Paragraph','bee' ); ?></h3>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+        <?php if(!dynamic_sidebar('sidebar-1')): ?>
+					<?php dynamic_sidebar( 'sidebar-1' ); ?>
+					<?php endif; ?>
   	</div>
 </div>
