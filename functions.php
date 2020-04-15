@@ -297,6 +297,11 @@ function my_func($more) {
 	return '';
 }
 /**
+ * Breadcrumb
+ */
+require get_parent_theme_file_path( '/inc/breadcrumb.php' );
+
+/**
  *	Default WordPress custom field
  **/
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
