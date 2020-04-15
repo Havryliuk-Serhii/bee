@@ -30,7 +30,7 @@ $title_request = get_post_meta(8, 'title_request', true);
 				    <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
 					    <div class="icon d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
 						<div class="text d-flex align-items-center">
-						   	<span><?php echo get_option('my_phone'); ?></span>
+						   	<span>Call Us:<?php echo get_option('my_phone'); ?></span>
 						</div>
 					</div>
 					<div class="col-md topper d-flex align-items-center align-items-stretch">

@@ -103,8 +103,9 @@ remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 
 /**
- * Add  e-mail and phone textarea
+ * Add  address, e-mail, website and phone textarea
  **/
+ //Email
 function my_email_options(){
 	add_settings_field(
 	'email',
@@ -122,7 +123,7 @@ add_action('admin_init', 'my_email_options');
 function display_email(){
 echo "<input type='text' class='regular-text' name='my_email' value='" . esc_attr(get_option('my_email')) . "'>";
 }
-
+//Phone
 function my_phone_options(){
 	add_settings_field(
 	'phone',
@@ -140,7 +141,42 @@ add_action('admin_init', 'my_phone_options');
 function display_phone(){
 echo "<input type='text' class='regular-text' name='my_phone' value='" . esc_attr(get_option('my_phone')) . "'>";
 }
+//Address
+function my_address_options(){
+	add_settings_field(
+	'address',
+	'Write youre address',
+	'display_address',
+	'general'
+);
 
+register_setting(
+	'general',
+	'my_address'
+);
+}
+add_action('admin_init', 'my_address_options');
+function display_address(){
+echo "<input type='text' class='regular-text' name='my_address' value='" . esc_attr(get_option('my_address')) . "'>";
+}
+//Website
+function my_website_options(){
+	add_settings_field(
+	'website',
+	'Write youre website',
+	'display_website',
+	'general'
+);
+
+register_setting(
+	'general',
+	'my_website'
+);
+}
+add_action('admin_init', 'my_website_options');
+function display_website(){
+echo "<input type='text' class='regular-text' name='my_website' value='" . esc_attr(get_option('my_website')) . "'>";
+}
 /**
  * Bootstrap Walker Nav menu
  **/

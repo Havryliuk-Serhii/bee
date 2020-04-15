@@ -5,13 +5,6 @@
 get_header(); ?>
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container-fluid p-0">
-        <div class="row no-gutters justify-content-center mb-5 pb-2">
-            <div class="col-md-6 text-center heading-section ftco-animate">
-                <span class="subheading"><?php esc_html_e('Projects','bee' ); ?></span>
-                <h2 class="mb-4"><?php esc_html_e('Featured Projects','bee' ); ?></h2>
-                <p><?php the_field('project_descr'); ?></p>
-            </div>
-        </div>
         <div class="row no-gutters">
             <?php
                 $project_gallery = new WP_Query(array('category_name' => 'projects','order' => 'ASC', 'posts_per_page'=>12));
