@@ -40,7 +40,7 @@ get_header(); ?>
             </div>
             <div class="col-md-3 d-flex">
           	    <div class="bg-light d-flex align-self-stretch box p-4">
-	                <p><span>Website</span> <a href="https://<?php echo get_option('my_website'); ?>"><?php echo get_option('my_website'); ?></a></p>
+	                <p><span>Website:</span> <a href="https://<?php echo get_option('my_website'); ?>"><?php echo get_option('my_website'); ?></a></p>
 	            </div>
             </div>
         </div>

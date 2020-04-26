@@ -15,7 +15,7 @@
           <div class="col-md-6 text ftco-animate pl-md-5">
             <h1 class="mb-4"><?php the_title(); ?></h1>
             <h3 class="subheading"><?php the_content(); ?></h3>
-            <p><a href="<?php echo get_the_permalink();?>" class="btn btn-secondary px-4 py-3 mt-3"><?php echo $title_request; ?></a></p>
+            <p><a href="#request-form" class="btn btn-secondary px-4 py-3 mt-3"><?php echo $title_request; ?></a></p>
           </div>
         </div>
         </div>

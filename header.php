@@ -35,7 +35,7 @@ $title_request = get_post_meta(8, 'title_request', true);
 					</div>
 					<div class="col-md topper d-flex align-items-center align-items-stretch">
 					   	<p class="mb-0 d-flex d-block">
-					   		<a href="<?php echo get_the_permalink();?>" class="btn btn-primary d-flex align-items-center justify-content-center">
+					   		<a href="#request-form" class="btn btn-primary d-flex align-items-center justify-content-center">
 					    		<span><?php echo $title_request; ?></span>
 					    	</a>
 					    </p>

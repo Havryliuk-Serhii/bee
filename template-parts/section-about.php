@@ -7,13 +7,13 @@
 <section class="ftco-section ftco-no-pt ftco-margin-top">
     <div class="container">
         <div class="row">
-            <!--
-               <div class="col-md-4">
-                   <div class="request-quote">
-                       <div class="bg-primary py-4">
-                           <span class="subheading">Be Part of our Business</span>
-                           <h3>Request A Quote</h3>
-                       </div>
+            <div class="col-md-4">
+                <div class="request-quote">
+                    <div class="bg-primary py-4" id="request-form">
+                        <span class="subheading"><?php esc_html_e('Be Part of our Business','bee' ); ?></span>
+                        <h3><?php esc_html_e('Request A Quote','bee' ); ?></h3>
+                    </div>
+                           <!--
                        <form action="#" class="request-form ftco-animate">
                            <div class="form-group">
                                <input type="text" class="form-control" placeholder="First Name">
@@ -45,10 +45,10 @@
                    <div class="form-group">
                      <input type="submit" value="Appointment" class="btn btn-primary py-3 px-4">
                    </div>
-                       </form>
+                       </form>  -->
                    </div>
                </div>
-           -->
+
            <?php
                $about_post = new WP_Query(array('category_name' => 'about'));
                if ($about_post->have_posts() ) :
